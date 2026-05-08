@@ -7,20 +7,20 @@ const STORAGE_KEY = 'sj_menu_items';
 const FALLBACK_EMOJI = '\u{1F374}';
 
 const ITEM_IMAGE_MAP = Object.freeze({
-  1: 'images/idly-sambar.png',
-  2: 'images/idly.jpg',
-  3: 'images/plain-dosa.png',
-  4: 'images/masala-dosa.png',
-  5: 'images/onion-dosa.jpg',
-  6: 'images/egg-dosa.png',
-  7: 'images/double-egg-dosa.jpg',
-  8: 'images/vada.png',
-  9: 'images/mysore-bonda.png',
-  10: 'images/puri.jpg',
-  11: 'images/biryani.jpg',
-  12: 'images/meals.jpg',
-  13: 'images/egg-curry.jpg',
-  14: 'images/chicken-curry.jpg'
+  1: 'idly-sambar.png',
+  2: 'idly.jpg',
+  3: 'plain-dosa.png',
+  4: 'masala-dosa.png',
+  5: 'onion-dosa.jpg',
+  6: 'egg-dosa.png',
+  7: 'double-egg-dosa.jpg',
+  8: 'vada.png',
+  9: 'mysore-bonda.png',
+  10: 'puri.jpg',
+  11: 'biryani.jpg',
+  12: 'meals.jpg',
+  13: 'egg-curry.jpg',
+  14: 'chicken-curry.jpg'
 });
 
 const DEFAULT_ITEMS = [
