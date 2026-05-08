@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Jagadeswara Tiffen, Biryani and Meals</title>
+  <meta name="description"
+    content="Fresh & delicious South Indian tiffins, biryani and meals at Sri Jagadeswara Tiffen. View our morning and evening menu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon">🍛</span>
+        <div class="brand-text">
+          <h1 class="brand-name">Sri Jagadeswara</h1>
+          <p class="brand-sub">Tiffen · Biryani · Meals</p>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <a href="#morning" class="nav-link active" id="nav-morning">🌅 Morning</a>
+        <a href="#evening" class="nav-link" id="nav-evening">🌙 Afternoon & Evening</a>
+        <a href="admin.html" class="nav-link admin-link" id="nav-admin">🔐 Admin</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Fresh &amp; Authentic</span>
+      <h2 class="hero-title">taste the<br /><span class="gradient-text">tradition</span></h2>
+      <p class="hero-desc">Authentic South Indian flavours served fresh every morning &amp; Afternoon & Evening.
+        Hygienically
+        prepared with love.</p>
+      <div class="hero-cta">
+        <a href="#morning" class="btn btn-primary" id="btn-see-morning">See Morning Menu</a>
+        <a href="#evening" class="btn btn-outline" id="btn-see-evening">See Afternoon & Evening</a>
+      </div>
+    </div>
+    <div class="hero-badges-row">
+      <div class="badge-pill">🌿 Fresh Daily</div>
+      <div class="badge-pill">👨‍🍳 Home Style</div>
+      <div class="badge-pill">💯 Quality First</div>
+    </div>
+  </section>
+
+  <!-- ========== SEARCH ========== -->
+  <div class="search-wrap">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search menu items..." autocomplete="off" />
+    </div>
+    <div class="filter-chips">
+      <button class="chip active" data-filter="all" id="filter-all">All Items</button>
+      <button class="chip" data-filter="morning" id="filter-morning">🌅 Morning</button>
+      <button class="chip" data-filter="evening" id="filter-evening">🌙 Afternoon & Evening</button>
+      <button class="chip" data-filter="available" id="filter-available">✅ Available</button>
+    </div>
+  </div>
+
+  <!-- ========== MORNING MENU ========== -->
+  <section class="menu-section" id="morning">
+    <div class="section-header">
+      <div class="section-label">🌅 Morning Tiffins</div>
+      <h2 class="section-title">Morning Menu</h2>
+      <p class="section-desc">Served from <strong>7:00 AM – 11:00 AM</strong></p>
+    </div>
+    <div class="menu-grid" id="morning-grid">
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+  </section>
+
+  <!-- ========== EVENING MENU ========== -->
+  <section class="menu-section evening-section" id="evening">
+    <div class="section-header">
+      <div class="section-label">🌙 Afternoon & Evening Specials</div>
+      <h2 class="section-title">Afternoon & Evening Menu</h2>
+      <p class="section-desc">Served from <strong>12:00 PM – 9:00 PM</strong></p>
+    </div>
+    <div class="menu-grid" id="evening-grid">
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+  </section>
+
+  <!-- ========== NO RESULTS ========== -->
+  <div class="no-results hidden" id="no-results">
+    <div class="no-results-icon">🍽️</div>
+    <h3>No items found</h3>
+    <p>Try a different search or filter.</p>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-icon">🍛</span>
+        <div>
+          <div class="footer-name">Sri Jagadeswara Tiffen, Biryani and Meals</div>
+          <div class="footer-tagline">Serving authentic South Indian taste since years</div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>⏰ Morning: 7:00 AM – 11:00 AM</p>
+        <p>⏰ Afternoon & Evening: 12:00 PM – 9:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Adatala . Tirupathirarao . All rights reserved.</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

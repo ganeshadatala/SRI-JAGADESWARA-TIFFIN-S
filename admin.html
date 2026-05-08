@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel – Sri Jagadeswara Tiffen</title>
+  <meta name="description" content="Admin panel for Sri Jagadeswara Tiffen, Biryani and Meals menu management." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <!-- ========== LOGIN SCREEN ========== -->
+  <div class="login-screen" id="login-screen">
+    <div class="login-card">
+      <div class="login-logo">🍛</div>
+      <h1 class="login-title">Admin Login</h1>
+      <p class="login-sub">Sri Jagadeswara Tiffen</p>
+      <form id="login-form" autocomplete="off">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" required autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="password" placeholder="Enter password" required autocomplete="off" />
+            <button type="button" class="eye-btn" id="eye-btn" title="Show password">👁️</button>
+          </div>
+        </div>
+        <div class="login-error hidden" id="login-error">❌ Invalid credentials. Try again.</div>
+        <button type="submit" class="btn-login" id="btn-login-submit">Login</button>
+      </form>
+      <p class="login-hint">Default: <code>admin</code> / <code>admin123</code></p>
+    </div>
+  </div>
+
+  <!-- ========== ADMIN DASHBOARD ========== -->
+  <div class="admin-shell hidden" id="admin-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span>🍛</span>
+        <div>
+          <div class="sb-title">Sri Jagadeswara</div>
+          <div class="sb-sub">Admin Panel</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="sb-link active" id="sb-all" data-section="all">📋 All Items</a>
+        <a href="#" class="sb-link" id="sb-morning" data-section="morning">🌅 Morning</a>
+        <a href="#" class="sb-link" id="sb-evening" data-section="evening">🌙 Afternoon & Evening</a>
+        <a href="#" class="sb-link" id="sb-add" data-section="add">➕ Add Item</a>
+      </nav>
+      <a href="index.html" class="btn-view-site" id="btn-view-site">🌐 View Site</a>
+      <button class="btn-logout" id="btn-logout">🚪 Logout</button>
+    </aside>
+
+    <!-- Main content -->
+    <main class="admin-main">
+
+      <!-- Top bar -->
+      <div class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+          <h2 class="topbar-title" id="topbar-title">All Menu Items</h2>
+        </div>
+        <div class="topbar-right">
+          <div class="admin-search-wrap">
+            <input type="text" id="admin-search" placeholder="Search items..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="stats-bar" id="stats-bar">
+        <div class="stat-card" id="stat-total">
+          <div class="stat-num">–</div>
+          <div class="stat-label">Total Items</div>
+        </div>
+        <div class="stat-card" id="stat-morning">
+          <div class="stat-num">–</div>
+          <div class="stat-label">Morning Items</div>
+        </div>
+        <div class="stat-card" id="stat-evening">
+          <div class="stat-num">–</div>
+          <div class="stat-label">Evening Items</div>
+        </div>
+        <div class="stat-card" id="stat-available">
+          <div class="stat-num">–</div>
+          <div class="stat-label">Available</div>
+        </div>
+      </div>
+
+      <!-- Add item form -->
+      <div class="add-form-panel hidden" id="add-form-panel">
+        <h3 class="panel-title">➕ Add New Item</h3>
+        <form id="add-item-form" class="add-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-name">Item Name *</label>
+              <input type="text" id="new-name" placeholder="e.g. Idly Sambar" required />
+            </div>
+            <div class="form-group">
+              <label for="new-price">Price (₹) *</label>
+              <input type="number" id="new-price" placeholder="e.g. 30" min="1" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-category">Category *</label>
+              <select id="new-category" required>
+                <option value="">-- Select --</option>
+                <option value="morning">🌅 Morning</option>
+                <option value="evening">🌙 Evening</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="new-emoji">Emoji Icon</label>
+              <input type="text" id="new-emoji" placeholder="e.g. 🍚" maxlength="4" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-add" id="btn-add-item">➕ Add Item</button>
+          </div>
+          <div class="form-msg hidden" id="add-msg"></div>
+        </form>
+      </div>
+
+      <!-- Items table -->
+      <div class="table-panel" id="table-panel">
+        <div class="table-wrap">
+          <table class="items-table" id="items-table">
+            <thead>
+              <tr>
+                <th>Visual</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="items-tbody">
+              <tr><td colspan="6" class="loading-row">Loading items…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ========== EDIT MODAL ========== -->
+  <div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal-card" id="modal-card">
+      <h3 class="modal-title">✏️ Edit Item</h3>
+      <input type="hidden" id="edit-id" />
+      <div class="form-group">
+        <label for="edit-name">Item Name</label>
+        <input type="text" id="edit-name" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="edit-price">Price (₹)</label>
+          <input type="number" id="edit-price" min="1" />
+        </div>
+        <div class="form-group">
+          <label for="edit-category">Category</label>
+          <select id="edit-category">
+            <option value="morning">🌅 Morning</option>
+            <option value="evening">🌙 Evening</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="edit-emoji">Emoji</label>
+        <input type="text" id="edit-emoji" maxlength="4" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" id="btn-modal-cancel">Cancel</button>
+        <button class="btn-save" id="btn-modal-save">💾 Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TOAST ========== -->
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
